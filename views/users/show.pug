@@ -9,7 +9,11 @@ block content
         h1= user.name
         h4= user.hometown
       .col-sm-2
-        a(href="/users/" + user._id + "/edit") edit
+        .user-profile-edit
+          a(href="/users/" + user._id + "/edit") edit
+          form(method="Post" action="/users/" + user._id + "/delete")
+            label(for="delete-user") delete
+            input(type="submit" id="delete-user" value="")
       hr
       p checkins:  #{user.checkIns.length}
       table.col-sm-8.offset-sm-4
